@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://beul0ada2swni"]
+
+[ext_resource type="Script" uid="uid://babfvtg37dqja" path="res://imported/boid_script.gd" id="1_ays04"]
+[ext_resource type="Script" uid="uid://nkhev00btufw" path="res://imported/drawVec.gd" id="2_ujf4c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwgyd"]
+size = Vector2(64, 96)
+
+[node name="main_boid" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_ays04")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -56, -32, 40, 32, 40)
+uv = PackedVector2Array(-112, -48, -152, 48, -72, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_wwgyd")
+
+[node name="VectorVisualizer" type="Node2D" parent="."]
+script = ExtResource("2_ujf4c")
