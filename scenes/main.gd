@@ -3,6 +3,8 @@ extends Node2D
 @onready var m_masterBoid: CharacterBody2D = %CharacterBody2D_masterBoid
 @onready var m_mouse_world_pos: Vector2 = Vector2.ZERO
 
+
+
 func _ready():
 	pass
 	
