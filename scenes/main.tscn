@@ -18,40 +18,31 @@ position = Vector2(852, 161)
 position = Vector2(622, 154)
 
 [node name="CharacterBody2D_regular_boid_3" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(150, 124)
+position = Vector2(318, 295)
 
 [node name="CharacterBody2D_regular_boid_4" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 499)
+position = Vector2(88, 288)
 
 [node name="CharacterBody2D_regular_boid_5" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(477, 444)
+position = Vector2(822, 527)
 
 [node name="CharacterBody2D_regular_boid_6" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(649, 499)
+position = Vector2(592, 520)
 
 [node name="CharacterBody2D_regular_boid_7" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(804, 489)
+position = Vector2(972, 95)
 
 [node name="CharacterBody2D_regular_boid_8" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 499)
+position = Vector2(742, 88)
 
 [node name="CharacterBody2D_regular_boid_9" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 243)
+position = Vector2(438, 229)
 
 [node name="CharacterBody2D_regular_boid_10" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(513, 588)
+position = Vector2(208, 222)
 
 [node name="CharacterBody2D_regular_boid_11" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(428, 499)
+position = Vector2(942, 461)
 
 [node name="CharacterBody2D_regular_boid_12" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(583, 489)
-
-[node name="CharacterBody2D_regular_boid_13" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(108, 499)
-
-[node name="CharacterBody2D_regular_boid_14" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(108, 243)
-
-[node name="CharacterBody2D_regular_boid_15" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(292, 588)
+position = Vector2(712, 454)

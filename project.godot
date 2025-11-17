@@ -15,6 +15,10 @@ run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GLOBAL="*res://scripts/GLOBAL.gd"
+
 [global_group]
 
 Boid="any node that acts as a type of boid"

@@ -5,7 +5,6 @@ extends Node2D
 
 @onready var masterBoid_to_mouse_vec = Vector2.ZERO
 
-@export var SPEED: float = 120
 
 func _ready():
 	pass
@@ -28,7 +27,7 @@ func _physics_process(delta):
 	
 		queue_redraw()
 	
-	m_masterBoid.velocity = masterBoid_to_mouse_vec.normalized() * SPEED
+	m_masterBoid.velocity = masterBoid_to_mouse_vec.normalized() * GLOBAL.BOID_SPEED
 	m_masterBoid.move_and_slide()
 
 #remember that draw converts coordinates from local space to global space, so if you pass in global space coordinates you will get weird results

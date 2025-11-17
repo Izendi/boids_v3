@@ -5,7 +5,8 @@ class_name Regular_Boid
 
 var neighbor_boids: Array[Node2D] = []
 
-@onready var area2D_influence_radius = $Area2D
+@onready var area2D_influence_shape = $Area2D
+@onready var area2D_influence_radius = $Area2D/CollisionShape2D
 @onready var no_boids: int = 0
 @onready var old_no_boids: int = 0
 
@@ -21,7 +22,7 @@ func wrap_position(pos: Vector2, rect: Rect2) -> Vector2:
 		wrapf(pos.y, rect.position.y, rect.position.y + rect.size.y)
 	)
 
-func calcSteeringVector() -> Vector2:
+func calcSteeringVector(separation_weight_val: float, alignment_weight_val: float, cohesion_weight_val: float) -> Vector2:
 	var steeringVec: Vector2 = Vector2(0.0, 0.0)
 	
 	# 1 - SEPARATION
@@ -73,7 +74,7 @@ func calcSteeringVector() -> Vector2:
 	
 	var cohesion_vector = (neighbors_center_of_mass - self.global_position).normalized()
 	
-	steeringVec = separation_force_vec * separation_weight + alignment_vec * alignment_weight + cohesion_vector * cohesion_weight
+	steeringVec = separation_force_vec * separation_weight_val + alignment_vec * alignment_weight_val + cohesion_vector * cohesion_weight_val
 	
 	return steeringVec
 
@@ -81,8 +82,8 @@ func _ready():
 	velocity = Vector2(60.0, 0.0)
 
 func _physics_process(delta):
-	
-	neighbor_boids = area2D_influence_radius.get_overlapping_bodies()
+	area2D_influence_radius.shape.radius = GLOBAL.BOID_INFLUENCE_RADIUS
+	neighbor_boids = area2D_influence_shape.get_overlapping_bodies()
 	
 	old_no_boids = no_boids
 	no_boids = 0
@@ -100,9 +101,9 @@ func _physics_process(delta):
 	#velocity = velocity + Vector2(0, 9.8) * delta #move and slide with multiply this by the delta for me.
 	#velocity = velocity.limit_length(120)
 	
-	var steeringVector: Vector2 = calcSteeringVector() 
+	var steeringVector: Vector2 = calcSteeringVector(GLOBAL.SEPARATION_WEIGHT, GLOBAL.ALIGNMENT_WEIGHT, GLOBAL.COHESION_WEIGHT) 
 	velocity = velocity + steeringVector
-	velocity = (velocity.normalized()) * SPEED
+	velocity = (velocity.normalized()) * GLOBAL.BOID_SPEED
 	
 	rotation = velocity.angle()
 	#velocity = Vector2(50.0, 50.0)
