@@ -22,6 +22,16 @@ func wrap_position(pos: Vector2, rect: Rect2) -> Vector2:
 		wrapf(pos.y, rect.position.y, rect.position.y + rect.size.y)
 	)
 
+func checkIfThisBoidIsBehindMe(distanceVec: Vector2) -> bool:
+	var angle = (self.velocity).angle_to(distanceVec)
+	
+	var radToIgnore = deg_to_rad(GLOBAL.BOID_IGNORE_BEHIND_ANGLE)
+	
+	if angle > radToIgnore or angle < -(radToIgnore):
+		return true
+	else:
+		return false
+
 func calcSteeringVector(separation_weight_val: float, alignment_weight_val: float, cohesion_weight_val: float) -> Vector2:
 	var steeringVec: Vector2 = Vector2(0.0, 0.0)
 	
@@ -32,15 +42,19 @@ func calcSteeringVector(separation_weight_val: float, alignment_weight_val: floa
 	for neighbor_boid in neighbor_boids:
 		if neighbor_boid != self:
 			var distance_vec : Vector2 = self.global_position - neighbor_boid.global_position
-			var distance: float = distance_vec.length()
 			
-			# this real distance thing is a hack to work around pixels not being the same as one unit being equal to a meter, change it if you chagne to 3D
-			var one_meter_to_pixels = 20.0
-			var real_distance = distance / one_meter_to_pixels
+			if checkIfThisBoidIsBehindMe(distance_vec) != true: #if not behind me (so if it is in front of me)
+				var distance: float = distance_vec.length()
 			
-			var force: Vector2 = (self.global_position - neighbor_boid.global_position) / (real_distance * real_distance)
+				# this real distance thing is a hack to work around pixels not being the same as one unit being equal to a meter, change it if you chagne to 3D
+				var one_meter_to_pixels = 20.0
+				var real_distance = distance / one_meter_to_pixels
 			
-			separation_force_vec = separation_force_vec + force
+				var force: Vector2 = (self.global_position - neighbor_boid.global_position) / (real_distance * real_distance)
+			
+				separation_force_vec = separation_force_vec + force
+			
+			
 	
 	# 2 - ALIGNMENT
 	var avg_neighbor_boid_velocity = Vector2.ZERO
@@ -49,8 +63,12 @@ func calcSteeringVector(separation_weight_val: float, alignment_weight_val: floa
 	
 	for neighbor_boid in neighbor_boids:
 		if neighbor_boid != self:
-			avg_neighbor_boid_velocity += (neighbor_boid.velocity).normalized()
-			neighbor_count += 1
+			
+			var distance_vec : Vector2 = self.global_position - neighbor_boid.global_position
+			
+			if checkIfThisBoidIsBehindMe(distance_vec) != true:
+				avg_neighbor_boid_velocity += (neighbor_boid.velocity).normalized()
+				neighbor_count += 1
 		
 	if neighbor_count != 0:
 		avg_neighbor_boid_velocity = avg_neighbor_boid_velocity / neighbor_count
@@ -66,8 +84,13 @@ func calcSteeringVector(separation_weight_val: float, alignment_weight_val: floa
 	
 	for neighbor_boid in neighbor_boids:
 		if neighbor_boid != self:
-			neighbors_center_of_mass += neighbor_boid.global_position
-			neighbor_count_2 += 1.0
+			
+			var distance_vec : Vector2 = self.global_position - neighbor_boid.global_position
+			
+			if checkIfThisBoidIsBehindMe(distance_vec) != true:
+				neighbors_center_of_mass += neighbor_boid.global_position
+				neighbor_count_2 += 1.0
+			
 	
 	if neighbor_count_2 != 0:
 		neighbors_center_of_mass = neighbors_center_of_mass / neighbor_count_2
