@@ -10,8 +10,6 @@ var neighbor_boids: Array[Node2D] = []
 @onready var no_boids: int = 0
 @onready var old_no_boids: int = 0
 
-@export var SPEED: float = 120.0
-
 @export var separation_weight: float = 1.5
 @export var alignment_weight: float = 1.0
 @export var cohesion_weight: float = 1.0
@@ -27,10 +25,12 @@ func checkIfThisBoidIsBehindMe(distanceVec: Vector2) -> bool:
 	
 	var radToIgnore = deg_to_rad(GLOBAL.BOID_IGNORE_BEHIND_ANGLE)
 	
-	if angle > radToIgnore or angle < -(radToIgnore):
-		return true
-	else:
-		return false
+	return (angle > radToIgnore or angle < -(radToIgnore))
+	
+	#if angle > radToIgnore or angle < -(radToIgnore):
+		#return true
+	#else:
+		#return false
 
 func calcSteeringVector(separation_weight_val: float, alignment_weight_val: float, cohesion_weight_val: float) -> Vector2:
 	var steeringVec: Vector2 = Vector2(0.0, 0.0)
@@ -41,7 +41,7 @@ func calcSteeringVector(separation_weight_val: float, alignment_weight_val: floa
 	
 	for neighbor_boid in neighbor_boids:
 		if neighbor_boid != self:
-			var distance_vec : Vector2 = self.global_position - neighbor_boid.global_position
+			var distance_vec : Vector2 =  neighbor_boid.global_position - self.global_position
 			
 			if checkIfThisBoidIsBehindMe(distance_vec) != true: #if not behind me (so if it is in front of me)
 				var distance: float = distance_vec.length()
@@ -107,17 +107,6 @@ func _ready():
 func _physics_process(delta):
 	area2D_influence_radius.shape.radius = GLOBAL.BOID_INFLUENCE_RADIUS
 	neighbor_boids = area2D_influence_shape.get_overlapping_bodies()
-	
-	old_no_boids = no_boids
-	no_boids = 0
-	
-	for boid in neighbor_boids:
-		if boid != self:
-			no_boids += 1
-	
-	if no_boids != old_no_boids:
-		var myStr: String = "Boids nearby = " + str(no_boids)
-		print(myStr)
 	
 	# ------------------
 	
