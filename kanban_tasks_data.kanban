@@ -1,0 +1,67 @@
+{
+	"categories": [
+		{
+			"uuid": "e6b349da-74eb-4391-af27-4f7e89ebce5b",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "268f9b65-cbb4-49c4-a3e2-5d084c1a3865",
+			"title": "Todo",
+			"tasks": [
+				"b26bb51d-a047-48ea-831a-55afe1aed155",
+				"08595bcd-13a0-400a-8702-b1d53059b380"
+			]
+		},
+		{
+			"uuid": "191391f6-fc82-4d5d-9692-ed36d6b1cb2e",
+			"title": "Doing",
+			"tasks": [
+				"42217922-dfe8-43ac-82fc-856218b7a443"
+			]
+		},
+		{
+			"uuid": "49d93ba2-d1ab-4524-8be7-ea33968d494c",
+			"title": "Done",
+			"tasks": []
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "b26bb51d-a047-48ea-831a-55afe1aed155",
+			"title": "Learn How Shaders Work In Godot",
+			"description": "",
+			"category": "e6b349da-74eb-4391-af27-4f7e89ebce5b",
+			"steps": []
+		},
+		{
+			"uuid": "08595bcd-13a0-400a-8702-b1d53059b380",
+			"title": "Learn How to do stuff in C++ in Godot",
+			"description": "",
+			"category": "e6b349da-74eb-4391-af27-4f7e89ebce5b",
+			"steps": []
+		},
+		{
+			"uuid": "42217922-dfe8-43ac-82fc-856218b7a443",
+			"title": "Learn How to Visualize Vectors and Influence Radius objects at runtime",
+			"description": "",
+			"category": "e6b349da-74eb-4391-af27-4f7e89ebce5b",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"268f9b65-cbb4-49c4-a3e2-5d084c1a3865"
+			],
+			[
+				"191391f6-fc82-4d5d-9692-ed36d6b1cb2e"
+			],
+			[
+				"49d93ba2-d1ab-4524-8be7-ea33968d494c"
+			]
+		]
+	}
+}

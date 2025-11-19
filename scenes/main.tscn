@@ -1,15 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxsy8i5c6x6ny"]
+[gd_scene load_steps=3 format=3 uid="uid://dxsy8i5c6x6ny"]
 
 [ext_resource type="Script" uid="uid://cj523n7kxomcj" path="res://scenes/main.gd" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://cxpisath0dqtl" path="res://scenes/character_body_2d_master_boid.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cu16v5y0yhw3s" path="res://scenes/character_body_2d_regular_boid.tscn" id="3_sugp2"]
 
 [node name="Node2D_main" type="Node2D"]
 script = ExtResource("1_0wfyh")
-
-[node name="CharacterBody2D_masterBoid" parent="." instance=ExtResource("2_sugp2")]
-unique_name_in_owner = true
-position = Vector2(463, 346)
 
 [node name="CharacterBody2D_regular_boid_1" parent="." instance=ExtResource("3_sugp2")]
 position = Vector2(852, 161)
@@ -18,40 +13,211 @@ position = Vector2(852, 161)
 position = Vector2(622, 154)
 
 [node name="CharacterBody2D_regular_boid_3" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(150, 124)
+position = Vector2(318, 295)
 
 [node name="CharacterBody2D_regular_boid_4" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 499)
+position = Vector2(88, 288)
 
 [node name="CharacterBody2D_regular_boid_5" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(477, 444)
+position = Vector2(822, 527)
 
 [node name="CharacterBody2D_regular_boid_6" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(649, 499)
+position = Vector2(592, 520)
 
 [node name="CharacterBody2D_regular_boid_7" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(804, 489)
+position = Vector2(972, 95)
 
 [node name="CharacterBody2D_regular_boid_8" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 499)
+position = Vector2(742, 88)
 
 [node name="CharacterBody2D_regular_boid_9" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(329, 243)
+position = Vector2(438, 229)
 
 [node name="CharacterBody2D_regular_boid_10" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(513, 588)
+position = Vector2(208, 222)
 
 [node name="CharacterBody2D_regular_boid_11" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(428, 499)
+position = Vector2(942, 461)
 
 [node name="CharacterBody2D_regular_boid_12" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(583, 489)
+position = Vector2(712, 454)
 
 [node name="CharacterBody2D_regular_boid_13" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(108, 499)
+position = Vector2(200, 80)
 
 [node name="CharacterBody2D_regular_boid_14" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(108, 243)
+position = Vector2(934, 319)
 
 [node name="CharacterBody2D_regular_boid_15" parent="." instance=ExtResource("3_sugp2")]
-position = Vector2(292, 588)
+position = Vector2(704, 312)
+
+[node name="CharacterBody2D_regular_boid_16" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(200, 408)
+
+[node name="CharacterBody2D_regular_boid_17" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(96, 512)
+
+[node name="CharacterBody2D_regular_boid_18" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(840, 312)
+
+[node name="CharacterBody2D_regular_boid_19" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(336, 408)
+
+[node name="CharacterBody2D_regular_boid_20" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(232, 512)
+
+[node name="CharacterBody2D_regular_boid_21" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(464, 408)
+
+[node name="CharacterBody2D_regular_boid_22" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(360, 512)
+
+[node name="CharacterBody2D_regular_boid_23" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(576, 408)
+
+[node name="CharacterBody2D_regular_boid_24" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(472, 512)
+
+[node name="CharacterBody2D_regular_boid_25" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(552, 288)
+
+[node name="CharacterBody2D_regular_boid_26" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(432, 88)
+
+[node name="CharacterBody2D_regular_boid_27" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(328, 192)
+
+[node name="CharacterBody2D_regular_boid_28" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(536, 112)
+
+[node name="CharacterBody2D_regular_boid_29" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(408, 192)
+
+[node name="CharacterBody2D_regular_boid_30" parent="." instance=ExtResource("3_sugp2")]
+position = Vector2(616, 112)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 360.0
+
+[node name="HSlider_boid_influence_radius" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 184.0
+offset_bottom = 48.0
+max_value = 150.0
+
+[node name="Label_influence_radius" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 12
+text = "Influence Radius:"
+
+[node name="HSlider_Back_Angle_Blind_Spot" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 184.0
+offset_bottom = 104.0
+min_value = 10.0
+max_value = 170.0
+value = 10.0
+
+[node name="Label_Back_Angle_Blind_Spot" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 184.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 12
+text = "Back Angle Blind Spot:"
+
+[node name="HSlider_Separation_Weight" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 184.0
+offset_bottom = 160.0
+max_value = 3.0
+step = 0.1
+value = 1.5
+
+[node name="Label_Separation_Weight" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 184.0
+offset_bottom = 137.0
+theme_override_font_sizes/font_size = 12
+text = "Separation Weight:"
+
+[node name="HSlider_Cohesion_Weight" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 200.0
+offset_right = 184.0
+offset_bottom = 216.0
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="Label_Cohesion_Weight" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 176.0
+offset_right = 184.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 12
+text = "Cohesion Weight:"
+
+[node name="HSlider_Alignment_Weight" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 256.0
+offset_right = 184.0
+offset_bottom = 272.0
+max_value = 3.0
+step = 0.1
+value = 1.0
+
+[node name="Label_Alignment_Weight" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 232.0
+offset_right = 184.0
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 12
+text = "Alignment Weight:"
+
+[node name="HSlider_Boid_Speed" type="HSlider" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 312.0
+offset_right = 184.0
+offset_bottom = 328.0
+max_value = 350.0
+value = 120.0
+
+[node name="Label_Boid_Speed" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 184.0
+offset_bottom = 305.0
+theme_override_font_sizes/font_size = 12
+text = "Boid Speed:"
+
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_boid_influence_radius" to="." method="_on_h_slider_boid_influence_radius_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_Back_Angle_Blind_Spot" to="." method="_on_h_slider_back_angle_blind_spot_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_Separation_Weight" to="." method="_on_h_slider_separation_weight_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_Cohesion_Weight" to="." method="_on_h_slider_cohesion_weight_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_Alignment_Weight" to="." method="_on_h_slider_alignment_weight_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Panel/HSlider_Boid_Speed" to="." method="_on_h_slider_boid_speed_value_changed"]
